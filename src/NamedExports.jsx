@@ -1,0 +1,1 @@
+export { Glossary as default} from './high/accessibility'

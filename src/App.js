@@ -12,6 +12,13 @@ import { FilterableProductTable } from './React'
 import { MyComponent } from './api'
 import { WebAccessibility } from './high/accessibility'
 import { AntDesignComponent } from "./antDesignComponent";
+import { ContextComponent } from "./high/context";
+
+import BasicExample from "./router/Basic"
+import ParamsExample from "./router/UrlParameters"
+import AuthExample from "./router/RedirectsAuth";
+
+// import { curry } from "lodash";
 
 const Glossary = React.lazy(() => import('./NamedExports')); // ============================ must after the normal import, need to be wrapped in Suspense
 
@@ -56,6 +63,15 @@ function App() {
     {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
   ];
 
+
+  // 柯里化
+  // const split = curry((x, str) => str.split(x));
+  // const join = curry((x, arr) => arr.join(x));
+  // const replaceSpaceWithComma = compose(join(','), split(' '));
+  // const replaceCommaWithDash = compose(join('-'), split(','));
+
+  // console.log(replaceSpaceWithComma('h ello'));
+
   return (
     <div className="App" style={{marginBottom: '20px'}}>
       {element}
@@ -96,6 +112,10 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Glossary items={[{term: 1, description: 'term 1', id: 1,},{term: 2, description: 'term 2', id: 2,}]} />
       </Suspense>
+      <ContextComponent />
+      <BasicExample />
+      <ParamsExample />
+      <AuthExample />
     </div>
   );
 }

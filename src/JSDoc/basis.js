@@ -17,4 +17,4 @@ Book.prototype = {
   getTitle: function () {
     return this.title;
   }
-};
+}
